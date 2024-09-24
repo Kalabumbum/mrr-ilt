@@ -33,22 +33,22 @@ protected:
             past->m_next = ptr->m_next;
         return true;
     }
-    linked_list<C, LID>(LID id)
-        : m_id(id), m_next(linked_list<C, LID>::s_first)
+    linked_list<C, LID>(LID lid)
+        : m_id(lid), m_next(linked_list<C, LID>::s_first)
     {
         linked_list<C, LID>::s_first = static_cast<C *>(this);
     }
 
 public:
     static inline C *First(void) { return linked_list<C, LID>::s_first; }
-    static inline C *Get(LID id)
+    static inline C *Get(LID lid)
     {
         for (C *ptr = linked_list<C, LID>::s_first; ptr; ptr = ptr->m_next)
-            if (ptr->m_id == id)
+            if (ptr->m_id == lid)
                 return ptr;
         return nullptr;
     }
-    static inline bool Exists(LID id) { return Get(id) != nullptr; }
+    static inline bool Exists(LID lid) { return Get(lid) != nullptr; }
     static inline LID Count(void)
     {
         LID i = 0;
@@ -57,7 +57,7 @@ public:
     }
 
     inline C *next(void) const { return this->m_next; }
-    LID get_id(void) const { return m_id; }
+    LID get_lid(void) const { return m_id; }
     virtual ~linked_list<C, LID>(void) { linked_list<C, LID>::Remove(static_cast<C *>(this)); }
 };
 template <class C, typename LID>

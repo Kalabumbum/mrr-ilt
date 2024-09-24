@@ -1,20 +1,18 @@
 #pragma once
 
+class TrackPath;
+
 #include <vector>
 #include "track-signal.hpp"
+#include "linked-list.hpp"
 
-template<class LID = lid_t>
-class TrackPathObject : public linked_list<TrackPathObject<LID>, LID>;
-{
-	static LID s_counter;
-	TrackPathObject<LID>(lid_t id);
-};
-LID TrackPathObject<LID>::s_counter = 0;
-
-class TrackPath
+class TrackPath : public linked_list<TrackPath, lid_t>
 {
 	TrackSignal* m_signal;
-	TrackPathObject<> m_track_objects;
+	std::vector<TrackObject*> m_track_objects;
+	static lid_t s_counter;
 public:
+	TrackPath(lid_t lid, TrackSignal*, const std::vector<TrackObject*>&);
+	TrackPath(TrackSignal*, const std::vector<TrackObject*>&);
 private:
 };
