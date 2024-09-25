@@ -1,5 +1,5 @@
 #pragma once
-class TrackObject;
+// class TrackObject;
 
 #include <stdint.h>
 #include "track-path.hpp"
@@ -20,6 +20,7 @@ class TrackObject
 
 	TrackPath *m_owner = nullptr;
 
-	protected:
-	TrackObject(Type type);
+	// protected:
+	public:
+	TrackObject(Type = NONE);
 };

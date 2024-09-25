@@ -1,8 +1,8 @@
 #pragma once
 
-#include "linked-list.hpp"
+// #include "linked-list.hpp"
 #include "track-object.hpp"
 
-class Turnout : public TrackObject, public linked_list<Turnout>
+class Turnout : public TrackObject //, public linked_list<Turnout>
 {
 };

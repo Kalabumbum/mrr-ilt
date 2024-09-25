@@ -4,15 +4,19 @@ class TrackPath;
 
 #include <vector>
 #include "track-signal.hpp"
-#include "linked-list.hpp"
+// #include "linked-list.hpp"
 
-class TrackPath : public linked_list<TrackPath, lid_t>
+class TrackPathObject
+{
+	virtual bool check() = 0;
+};
+
+class TrackPath
 {
 	TrackSignal* m_signal;
-	std::vector<TrackObject*> m_track_objects;
-	static lid_t s_counter;
+	std::vector<TrackPathObject*> m_track_objects;
 public:
-	TrackPath(lid_t lid, TrackSignal*, const std::vector<TrackObject*>&);
-	TrackPath(TrackSignal*, const std::vector<TrackObject*>&);
+	// TrackPath(lid_t lid, TrackSignal*, const std::vector<TrackPathObject*>&);
+	TrackPath(TrackSignal*, const std::vector<TrackPathObject*>&);
 private:
 };
