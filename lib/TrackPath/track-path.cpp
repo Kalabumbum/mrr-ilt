@@ -1,19 +1,17 @@
 #include "track-path.hpp"
 
-// TrackPath::TrackPath(lid_t lid, TrackSignal *signal, const std::vector<TrackPathObject *> &track_objects)
-// 	: linked_list(lid), m_signal(signal), m_track_objects(track_objects)
-// {
-// 	if (get_lid() > s_counter)
-// 		s_counter = get_lid();
-// }
 
-// TrackPath::TrackPath(TrackSignal *signal, const std::vector<TrackPathObject *> &track_objects)
-// 	: TrackPath(++s_counter, signal, track_objects)
-// {
-// }
+TrackPathObjectSignal::TrackPathObjectSignal(TrackSignal *signal, TrackSignal::state_t state)
+	: m_signal(signal), m_state(state)
+{
+}
+
+bool TrackPathObjectSignal::check()
+{
+	return m_state == m_signal->get_state();
+}
 
 TrackPath::TrackPath(TrackSignal *signal, const std::vector<TrackPathObject *> &track_objects)
-	// : TrackPath(signal, track_objects)
 	: m_signal(signal), m_track_objects(track_objects)
 {
 }

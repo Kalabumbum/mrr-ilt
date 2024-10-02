@@ -1,19 +1,10 @@
-#pragma once
+#ifndef TRACK_SENSOR_HPP
+#define TRACK_SENSOR_HPP
 
 class TrackSensor;
 
 #include "track-object.hpp"
-// #include "linked-list.hpp"
 #include "sensor.hpp"
-
-// class TrackSensor : public TrackObject, public linked_list<TrackSensor>
-// {
-// 	public:
-// 	TrackSensor(lid_t, Sensor*);
-
-// 	private:
-// 	Sensor* m_sensor;
-// };
 
 class TrackSensor : public TrackObject
 {
@@ -23,3 +14,4 @@ class TrackSensor : public TrackObject
 	private:
 	Sensor* m_sensor;
 };
+#endif // TRACK_SENSOR_H
