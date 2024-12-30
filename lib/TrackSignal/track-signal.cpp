@@ -9,3 +9,8 @@ TrackSignal::state_t TrackSignal::get_state(void)
 {
 	return m_state;
 }
+
+inline bool TrackSignal::set_state(state_t)
+{
+	return false;
+}

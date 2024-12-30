@@ -23,6 +23,11 @@ inline bool TrackObject::has_owner(void)
 	return m_owner != nullptr;
 }
 
+inline bool TrackObject::is_owner(owner_t owner)
+{
+	return m_owner == owner;
+}
+
 inline bool TrackObject::clear_owner(owner_t owner)
 {
 	if (m_owner == nullptr || m_owner != owner)
@@ -31,7 +36,7 @@ inline bool TrackObject::clear_owner(owner_t owner)
 	return true;
 }
 
-TrackObject::TrackObject(Type type)
-	: m_type(type)
+TrackObject::TrackObject(id_t id, Type type)
+	: Id(id), m_type(type)
 {
 }

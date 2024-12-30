@@ -1,10 +1,10 @@
 #pragma once
 // class TrackObject;
 
-#include <stdint.h>
+#include "id.hpp"
 #include "track-path.hpp"
 
-class TrackObject
+class TrackObject : Id
 {
 	public:
 	using owner_t = TrackPath *;
@@ -14,6 +14,7 @@ class TrackObject
 	inline bool set_owner(owner_t);
 	inline owner_t get_owner(void);
 	inline bool has_owner(void);
+	inline bool is_owner(owner_t);
 	inline bool clear_owner(owner_t);
 
 	private:
@@ -23,5 +24,5 @@ class TrackObject
 
 	// protected:
 	public:
-	TrackObject(Type = NONE);
+	TrackObject(id_t, Type = NONE);
 };

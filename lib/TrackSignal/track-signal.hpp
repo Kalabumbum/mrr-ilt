@@ -16,5 +16,6 @@ class TrackSignal : public TrackObject
 	public:
 	TrackSignal(/* lid_t */);
 	state_t get_state(void);
+	inline bool set_state(state_t);
 };
 #endif //TRACK_SIGNAL_HPP
